@@ -1,6 +1,6 @@
 ---
 title: "Untitled"
-author: "Your Name"
+author: "Phillip Escandon - escandon@bu.edu"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
@@ -10,13 +10,13 @@ output:
     css: styles.css
 ---
 
-<img src="logo.png" width=200 height=100 style="position:absolute;top:0px;right:100px;" />
+<img src="BU_Small.png" width=200 height=100 style="position:absolute;top:0px;right:100px;" />
 
-## About
+## Introduction
 
 This template expands on the minimal example, and includes a logo and custom CSS. 
 
-## Creating Directory
+## Analysis
 
 If you look at the file `inst/rmarkdown/templates/02-extra-files/templates.yaml`, you will see that the following line:
 
@@ -26,7 +26,7 @@ create_dir: true
 
 This means that a new directory will be created when the template is selected. This will copy over the content of the folder `inst/rmarkdown/templates/02-extra-files/skeleton`to the directory selected.
 
-## Example features
+## Conclusion
 
 The custom CSS has been used to change the style of the tables in the document.
 
@@ -34,7 +34,7 @@ The custom CSS has been used to change the style of the tables in the document.
 knitr::kable(mtcars[1:5, 1:5], caption = "A custom table style")
 ```
 
-## Customisation
+## Customization
 
 You may want to consider making the following changes
 

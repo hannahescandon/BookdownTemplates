@@ -1,7 +1,7 @@
 ---
 title: "Untitled"
-author: "Your Name"
-website: "https://www.rstudio.com/"
+author: "Phillip Escandon - escandon@bu.edu"
+website: "https://www.philecandon.rbind.io/"
 output:
   html_document:
     toc: true
@@ -9,7 +9,7 @@ output:
     template: template.html
 ---
 
-# About
+## Introduction
 
 In this example, we highlight how a custom pandoc template can be used to add additional features to the styling of the HTML output. This report includes a customised footer, which will display the author name and a website URL as defined by the YAML parameter `website`.
 
