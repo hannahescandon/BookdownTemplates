@@ -1,6 +1,6 @@
 ---
 title: "Custom R Markdown Documents"
-author: ""
+author: "Phillip Escandon - escandon@bu.edu"
 date: ""
 output:
   MyTemplates::my_html_format:
