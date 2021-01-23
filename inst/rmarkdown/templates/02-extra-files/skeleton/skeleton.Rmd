@@ -10,10 +10,10 @@ output:
     toc: true
     fig_caption: true
     theme: flatly
-    css: styles.css
+    css: "res/styles.css"
 ---
 
-<img src="BU_Small.png" width=200 height=100 style="position:absolute;top:0px;right:100px;" />
+<img src="res/BU_Small.png" width=200 height=100 style="position:absolute;top:0px;right:100px;" />
 
 ## Introduction
 
