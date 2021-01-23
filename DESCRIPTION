@@ -3,8 +3,8 @@ Type: Package
 Title: Simple Templates
 Version: 0.1.0
 Author: philescandon
-Maintainer: escandon@bu.edu
-Description: 
+Maintainer: Phil Escandon <escandon@bu.edu>
+Description: Simple template 2 for Boston U.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
