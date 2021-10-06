@@ -1,52 +1,127 @@
 ---
-title: "Untitled"
+title: "Assignment"
 author: "Phillip Escandon - escandon@bu.edu"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
+keywords: ""
+bibliography: references.bib
 output:
-  word_document:
-    toc: true
-    reference_doc: "res/BUtemplate.docx"
+  pdf_document: 
+    toc: yes
+    fig_caption: yes
   html_document:
-    toc: true
-    fig_caption: true
+    toc: yes
+    fig_caption: yes
     theme: flatly
-    css: "res/styles.css"
+    css: res/styles.css
+  word_document:
+    toc: yes
+    reference_doc: res/BUtemplate.docx
+header-includes:
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+    \includegraphics[width=2in,height=2in]{res/BU_Small.png}\LARGE\\}
+  - \posttitle{\end{center}}
+editor_options: 
+  chunk_output_type: console
 ---
 
-<img src="res/BU_Small.png" width=200 height=100 style="position:absolute;top:0px;right:100px;" />
+<img src="res/BU_Small.png" width="200" height="100" style="position:absolute;top:0px;right:100px;"/>
+
+```{r include=FALSE}
+# private github repo
+#setwd("~/GitHub/BU/")
+
+```
+
+```{=html}
+<!-- Optionally include a page break. This will force the start
+of the document to the second page (R Marckdown CookbookBookdown.org Section 6.3) -->
+```
+\newpage
+
+```{r}
+library(reticulate)
+library(tidyverse)
+library(tidytext)
+library(plotly)
+
+```
 
 ## Introduction
 
-This template expands on the minimal example, and includes a logo and custom CSS. 
+This template expands on the minimal example, and includes a logo and custom CSS.
+
+USE THE VISUAL EDITOR
+
+@bajuk
 
 ## Analysis
 
-If you look at the file `inst/rmarkdown/templates/02-extra-files/templates.yaml`, you will see that the following line:
-
-```
-create_dir: true
-```
-
-This means that a new directory will be created when the template is selected. This will copy over the content of the folder `inst/rmarkdown/templates/02-extra-files/skeleton`to the directory selected.
-
-## Conclusion
-
-The custom CSS has been used to change the style of the tables in the document.
+## Load file from url
 
 ```{r}
-knitr::kable(mtcars[1:5, 1:5], caption = "A custom table style")
+seedURL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt"
+seedColumns <- c("area","perimeter","compactness","length","width","asym","groove","cluster")
+seedDF <-  read_table(seedURL,col_names = seedColumns)
+#seedDF <-  read_table("./seeds_dataset.txt",col_names = seedColumns)
+glimpse(seedDF)
+
+# Exclude column 8
+seedDF7 <- seedDF %>% select(-cluster)
+
 ```
 
-## Customization
+## Cluster
 
-You may want to consider making the following changes
+```{r}
+featureString = c("area","perimeter")
+c = 2
 
-- altering the style.css file to change the style of the table
-- Add your own logo to the header by replacing the `logo.png` file.
+kmresult <- seedDF %>% 
+  select(featureString) %>%
+  kmeans(centers = c,nstart = 10)
 
-## Limitations
+# Get the cluster result and add to the dataframe
+seedDF7$cluster <- as.character(kmresult$cluster)
 
-You may notice that this kind of template requires the external files to be in the same working directory as the R Markdown file. This can make the file less portable, and also can become frustrating if you want to have lots of additional files.
 
-You may overcome this limitation by creating a custom R Markdown format. This allows us to reference to files contained directly within your custom template package. To see an example of this, check out template 5.
 
+
+p3 <- ggplot() +  geom_point(data = seedDF7,
+                  mapping = aes_(
+                           x = sym(featureString[1]), 
+                           y = sym(featureString[2]), 
+                           colour = seedDF7$cluster)) +
+                  geom_point(mapping = aes_string(
+                    x = kmresult$centers[, featureString[1]], 
+                    y = kmresult$centers[, featureString[2]]),
+                    color = "red", size = 4) +
+                labs(
+                  title = "KMeans- Total sum of squares",
+                  subtitle = kmresult$tot.withinss
+  )
+```
+
+### Print plotly only if html
+
+```{r}
+# Only print if html output
+if(knitr::is_html_output()){
+  ggplotly(p3)
+} else {
+  p3
+}
+  
+kmresult$tot.withinss
+
+
+```
+
+### Principal Component Analysis
+
+```{r}
+# Which features should I keep?  All? Some?
+#seedPCA <- prcomp(seedDF7)
+#summary(seedPCA)
+
+```
