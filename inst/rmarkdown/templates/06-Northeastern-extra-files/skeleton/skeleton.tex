@@ -1,0 +1,407 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Assignment},
+  pdfauthor={Hannah Escandon - escandon.h@northeastern.edu},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{titling}
+\pretitle{\begin{center} \includegraphics[width=2in,height=2in]{res/NEU_logo21.png}\LARGE\\}
+\posttitle{\end{center}}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\title{Assignment}
+\author{Hannah Escandon -
+\href{mailto:escandon.h@northeastern.edu}{\nolinkurl{escandon.h@northeastern.edu}}}
+\date{27 December, 2021}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{start-here}{%
+\subsection{Start here}\label{start-here}}
+
+This is text that I wrote here - just follow these examples.
+
+\hypertarget{after-you-write}{%
+\subsection{After you write}\label{after-you-write}}
+
+you can `knit' this document into an HTML document - like a website or
+you can create a PDF or a word document.
+
+Look at at the submenu items and you will see `Knit' next to a ball of
+yarn. Click that. Select - Knit to HTML or Knit to PDF or Knit of Doc.
+
+You can add images here as well
+
+\includegraphics[width=3.58333in,height=\textheight]{https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo.png}
+
+\newpage
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(reticulate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'reticulate' was built under R version 4.1.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+\end{verbatim}
+
+\begin{verbatim}
+## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.6     v dplyr   1.0.7
+## v tidyr   1.1.4     v stringr 1.4.0
+## v readr   2.1.1     v forcats 0.5.1
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tibble' was built under R version 4.1.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tidyr' was built under R version 4.1.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'readr' was built under R version 4.1.2
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidytext)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidytext' was built under R version 4.1.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(plotly)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'plotly' was built under R version 4.1.2
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'plotly'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:ggplot2':
+## 
+##     last_plot
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:stats':
+## 
+##     filter
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:graphics':
+## 
+##     layout
+\end{verbatim}
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+This template expands on the minimal example, and includes a logo and
+custom CSS.
+
+USE THE VISUAL EDITOR
+
+Bajuk (n.d.)
+
+\hypertarget{analysis}{%
+\subsection{Analysis}\label{analysis}}
+
+\hypertarget{load-file-from-url}{%
+\subsection{Load file from url}\label{load-file-from-url}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seedURL }\OtherTok{\textless{}{-}} \StringTok{"https://archive.ics.uci.edu/ml/machine{-}learning{-}databases/00236/seeds\_dataset.txt"}
+\NormalTok{seedColumns }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"area"}\NormalTok{,}\StringTok{"perimeter"}\NormalTok{,}\StringTok{"compactness"}\NormalTok{,}\StringTok{"length"}\NormalTok{,}\StringTok{"width"}\NormalTok{,}\StringTok{"asym"}\NormalTok{,}\StringTok{"groove"}\NormalTok{,}\StringTok{"cluster"}\NormalTok{)}
+\NormalTok{seedDF }\OtherTok{\textless{}{-}}  \FunctionTok{read\_table}\NormalTok{(seedURL,}\AttributeTok{col\_names =}\NormalTok{ seedColumns)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   area = col_double(),
+##   perimeter = col_double(),
+##   compactness = col_double(),
+##   length = col_double(),
+##   width = col_double(),
+##   asym = col_double(),
+##   groove = col_double(),
+##   cluster = col_double()
+## )
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#seedDF \textless{}{-}  read\_table("./seeds\_dataset.txt",col\_names = seedColumns)}
+\FunctionTok{glimpse}\NormalTok{(seedDF)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 210
+## Columns: 8
+## $ area        <dbl> 15.26, 14.88, 14.29, 13.84, 16.14, 14.38, 14.69, 14.11, 16~
+## $ perimeter   <dbl> 14.84, 14.57, 14.09, 13.94, 14.99, 14.21, 14.49, 14.10, 15~
+## $ compactness <dbl> 0.8710, 0.8811, 0.9050, 0.8955, 0.9034, 0.8951, 0.8799, 0.~
+## $ length      <dbl> 5.763, 5.554, 5.291, 5.324, 5.658, 5.386, 5.563, 5.420, 6.~
+## $ width       <dbl> 3.312, 3.333, 3.337, 3.379, 3.562, 3.312, 3.259, 3.302, 3.~
+## $ asym        <dbl> 2.2210, 1.0180, 2.6990, 2.2590, 1.3550, 2.4620, 3.5860, 2.~
+## $ groove      <dbl> 5.220, 4.956, 4.825, 4.805, 5.175, 4.956, 5.219, 5.000, 5.~
+## $ cluster     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Exclude column 8}
+\NormalTok{seedDF7 }\OtherTok{\textless{}{-}}\NormalTok{ seedDF }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{cluster)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{cluster}{%
+\subsection{Cluster}\label{cluster}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{featureString }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"area"}\NormalTok{,}\StringTok{"perimeter"}\NormalTok{)}
+\NormalTok{c }\OtherTok{=} \DecValTok{2}
+
+\NormalTok{kmresult }\OtherTok{\textless{}{-}}\NormalTok{ seedDF }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(featureString) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kmeans}\NormalTok{(}\AttributeTok{centers =}\NormalTok{ c,}\AttributeTok{nstart =} \DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Note: Using an external vector in selections is ambiguous.
+## i Use `all_of(featureString)` instead of `featureString` to silence this message.
+## i See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
+## This message is displayed once per session.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Get the cluster result and add to the dataframe}
+\NormalTok{seedDF7}\SpecialCharTok{$}\NormalTok{cluster }\OtherTok{\textless{}{-}} \FunctionTok{as.character}\NormalTok{(kmresult}\SpecialCharTok{$}\NormalTok{cluster)}
+
+
+
+
+\NormalTok{p3 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+}  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data =}\NormalTok{ seedDF7,}
+                  \AttributeTok{mapping =} \FunctionTok{aes\_}\NormalTok{(}
+                           \AttributeTok{x =} \FunctionTok{sym}\NormalTok{(featureString[}\DecValTok{1}\NormalTok{]), }
+                           \AttributeTok{y =} \FunctionTok{sym}\NormalTok{(featureString[}\DecValTok{2}\NormalTok{]), }
+                           \AttributeTok{colour =}\NormalTok{ seedDF7}\SpecialCharTok{$}\NormalTok{cluster)) }\SpecialCharTok{+}
+                  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes\_string}\NormalTok{(}
+                    \AttributeTok{x =}\NormalTok{ kmresult}\SpecialCharTok{$}\NormalTok{centers[, featureString[}\DecValTok{1}\NormalTok{]], }
+                    \AttributeTok{y =}\NormalTok{ kmresult}\SpecialCharTok{$}\NormalTok{centers[, featureString[}\DecValTok{2}\NormalTok{]]),}
+                    \AttributeTok{color =} \StringTok{"red"}\NormalTok{, }\AttributeTok{size =} \DecValTok{4}\NormalTok{) }\SpecialCharTok{+}
+                \FunctionTok{labs}\NormalTok{(}
+                  \AttributeTok{title =} \StringTok{"KMeans{-} Total sum of squares"}\NormalTok{,}
+                  \AttributeTok{subtitle =}\NormalTok{ kmresult}\SpecialCharTok{$}\NormalTok{tot.withinss}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{print-plotly-only-if-html}{%
+\subsubsection{Print plotly only if
+html}\label{print-plotly-only-if-html}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Only print if html output}
+\ControlFlowTok{if}\NormalTok{(knitr}\SpecialCharTok{::}\FunctionTok{is\_html\_output}\NormalTok{())\{}
+  \FunctionTok{ggplotly}\NormalTok{(p3)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{  p3}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{skeleton_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kmresult}\SpecialCharTok{$}\NormalTok{tot.withinss}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 510.0478
+\end{verbatim}
+
+\hypertarget{principal-component-analysis}{%
+\subsubsection{Principal Component
+Analysis}\label{principal-component-analysis}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Which features should I keep?  All? Some?}
+\CommentTok{\#seedPCA \textless{}{-} prcomp(seedDF7)}
+\CommentTok{\#summary(seedPCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\hypertarget{ref-bajuk}{}%
+Bajuk, Lou. n.d. {``Debunking the Myths of r Vs. Python.''}
+\url{https://blog.rstudio.com/2021/06/15/debunking-the-myths-of-r-vs-python/}.
+
+\end{CSLReferences}
+
+\end{document}

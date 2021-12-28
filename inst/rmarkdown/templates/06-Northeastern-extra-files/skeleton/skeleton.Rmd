@@ -1,0 +1,141 @@
+---
+title: "Assignment"
+author: "Hannah Escandon - escandon.h@northeastern.edu"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+keywords: ""
+bibliography: references.bib
+output:
+  pdf_document: 
+    toc: yes
+    fig_caption: yes
+  html_document:
+    toc: yes
+    fig_caption: yes
+    theme: flatly
+    css: res/styles.css
+  word_document:
+    toc: yes
+    reference_doc: res/NEUtemplate.docx
+header-includes:
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+    \includegraphics[width=2in,height=2in]{res/NEU_logo21.png}\LARGE\\}
+  - \posttitle{\end{center}}
+editor_options: 
+  chunk_output_type: console
+---
+
+<img src="res/NE_logo21.png" width="200" height="100" style="position:absolute;top:0px;right:100px;"/>
+
+## Start here
+
+This is text that I wrote here - just follow these examples.
+
+## After you write
+
+you can 'knit' this document into an HTML document - like a website or you can create a PDF or a word document.
+
+Look at at the submenu items and you will see 'Knit' next to a ball of yarn. Click that. Select - Knit to HTML or Knit to PDF or Knit of Doc.
+
+You can add images here as well
+
+![](https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo.png "RStudio"){width="344"}
+
+```{r include=FALSE}
+# private github repo
+#setwd("~/GitHub/BU/")
+
+```
+
+```{=html}
+<!-- Optionally include a page break. This will force the start
+of the document to the second page (R Marckdown CookbookBookdown.org Section 6.3) -->
+```
+\newpage
+
+```{r}
+library(reticulate)
+library(tidyverse)
+library(tidytext)
+library(plotly)
+
+```
+
+## Introduction
+
+This template expands on the minimal example, and includes a logo and custom CSS.
+
+USE THE VISUAL EDITOR
+
+@bajuk
+
+## Analysis
+
+## Load file from url
+
+```{r}
+seedURL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt"
+seedColumns <- c("area","perimeter","compactness","length","width","asym","groove","cluster")
+seedDF <-  read_table(seedURL,col_names = seedColumns)
+#seedDF <-  read_table("./seeds_dataset.txt",col_names = seedColumns)
+glimpse(seedDF)
+
+# Exclude column 8
+seedDF7 <- seedDF %>% select(-cluster)
+
+```
+
+## Cluster
+
+```{r}
+featureString = c("area","perimeter")
+c = 2
+
+kmresult <- seedDF %>% 
+  select(featureString) %>%
+  kmeans(centers = c,nstart = 10)
+
+# Get the cluster result and add to the dataframe
+seedDF7$cluster <- as.character(kmresult$cluster)
+
+
+
+
+p3 <- ggplot() +  geom_point(data = seedDF7,
+                  mapping = aes_(
+                           x = sym(featureString[1]), 
+                           y = sym(featureString[2]), 
+                           colour = seedDF7$cluster)) +
+                  geom_point(mapping = aes_string(
+                    x = kmresult$centers[, featureString[1]], 
+                    y = kmresult$centers[, featureString[2]]),
+                    color = "red", size = 4) +
+                labs(
+                  title = "KMeans- Total sum of squares",
+                  subtitle = kmresult$tot.withinss
+  )
+```
+
+### Print plotly only if html
+
+```{r}
+# Only print if html output
+if(knitr::is_html_output()){
+  ggplotly(p3)
+} else {
+  p3
+}
+  
+kmresult$tot.withinss
+
+
+```
+
+### Principal Component Analysis
+
+```{r}
+# Which features should I keep?  All? Some?
+#seedPCA <- prcomp(seedDF7)
+#summary(seedPCA)
+
+```
