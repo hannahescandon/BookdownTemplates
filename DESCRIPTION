@@ -1,10 +1,10 @@
-Package: BUTemplates
+Package: BookdownTemplates
 Type: Package
 Title: Simple Templates
 Version: 0.1.0
 Author: philescandon
 Maintainer: Phil Escandon <escandon@bu.edu>
-Description: Simple template 2 for Boston U.
+Description: Simple template 2 for Boston U and template 6 for Northeastern
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
